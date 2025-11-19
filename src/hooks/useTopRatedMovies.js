@@ -13,7 +13,6 @@ const useTopRatedMovies = () => {
       API_OPTIONS
     );
     const data = await response.json();
-    console.log(data.results);
     dispatch(addTopRatedMovies(data.results));
   };
   useEffect(() => {

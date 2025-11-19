@@ -34,6 +34,7 @@
 - Build Movie Card
 - TMDB image CDN url
 - usePopularMovies, useUpcomingMovies, useTopRatedMovies Custom hook
+- GPT search filter
 
 # Features
 

@@ -141,9 +141,8 @@ const Login = () => {
         <input type="checkbox" />
         <label className="px-2">Remember Me</label> */}
         <h2 className="py-2 mx-2 cursor-pointer" onClick={toggleSignInForm}>
-          <span className="text-gray-300 ">New To Netflix?</span>{" "}
+          <span className="text-gray-300 ">New To Netflix?</span>
           <span className="font-bold">
-            {" "}
             {signInForm ? "Sign Up Now" : "Already Registerd? Sign In Now"}
           </span>
         </h2>
