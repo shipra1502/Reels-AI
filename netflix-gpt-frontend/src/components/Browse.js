@@ -21,7 +21,7 @@ const Browse = () => {
       <Header />
       {showGptSearch ? (
         <>
-          <div className="absolute -z-10">
+          <div className="fixed -z-10">
             <img alt="logo" src={NETFLIX_BACKGROUND}></img>
           </div>
           <GptSearch />
