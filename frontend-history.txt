@@ -1,0 +1,5 @@
+d43672f Integrate search functionality for movies
+b6fa74e commit secondary container with list of movies from various TMDB API
+f44a24c registed TMDB API for movies list and create store
+a4a2c24 add sign in user and sign out
+226924d Initial commit with secure environment variable management

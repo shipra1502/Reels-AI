@@ -34,7 +34,11 @@
 - Build Movie Card
 - TMDB image CDN url
 - usePopularMovies, useUpcomingMovies, useTopRatedMovies Custom hook
-- GPT search filter
+- GPT search page
+- GPT search bar
+- (\*) Multi language feature in our app
+- Integrate GPT API'S
+- Added backend integration to fetch data safely and prevent exposing API keys on the client side
 
 # Features
 

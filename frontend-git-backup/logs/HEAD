@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 4a420a09e57ec138f958b06499b350e800f62bc6 shipra1502 <shiprakus@gmail.com> 1759836006 +0400	commit (initial): Initialize project using Create React App
+4a420a09e57ec138f958b06499b350e800f62bc6 0000000000000000000000000000000000000000 shipra1502 <shiprakus@gmail.com> 1759919567 +0400	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 4a420a09e57ec138f958b06499b350e800f62bc6 shipra1502 <shiprakus@gmail.com> 1759919567 +0400	Branch: renamed refs/heads/master to refs/heads/main
+4a420a09e57ec138f958b06499b350e800f62bc6 d15ba651734d11804a8f4d50748a404d4345f196 shipra1502 <shiprakus@gmail.com> 1759919891 +0400	commit: Cra & tailwindcss
+d15ba651734d11804a8f4d50748a404d4345f196 a92324df794b437f5b8b57be63580f81cea81cd1 shipra1502 <shiprakus@gmail.com> 1760027764 +0400	commit: Login/Header && SigIn/SignUp Page
+a92324df794b437f5b8b57be63580f81cea81cd1 6b2f01444707cf4479c822465ca192cd91b9f7ed shipra1502 <shiprakus@gmail.com> 1761573923 +0400	commit: form validation
+6b2f01444707cf4479c822465ca192cd91b9f7ed 5ea8111b86e22b4b3ff186ee85d93a9e98780f00 shipra1502 <shiprakus@gmail.com> 1761658464 +0400	commit: add sign in and sign up page and authentication using google firebase
+5ea8111b86e22b4b3ff186ee85d93a9e98780f00 e1fbd8f5e478183d6ce6868a8e3adf06a6f9d1a8 shipra1502 <shiprakus@gmail.com> 1761662083 +0400	commit: Add environment variable configuration
+0000000000000000000000000000000000000000 226924d92e69a2741cbf39b8f35e6d1c247a9218 shipra1502 <shiprakus@gmail.com> 1761662162 +0400	commit (initial): Initial commit with secure environment variable management
+226924d92e69a2741cbf39b8f35e6d1c247a9218 0000000000000000000000000000000000000000 shipra1502 <shiprakus@gmail.com> 1761662186 +0400	Branch: renamed refs/heads/new-main to refs/heads/main
+0000000000000000000000000000000000000000 226924d92e69a2741cbf39b8f35e6d1c247a9218 shipra1502 <shiprakus@gmail.com> 1761662186 +0400	Branch: renamed refs/heads/new-main to refs/heads/main
+226924d92e69a2741cbf39b8f35e6d1c247a9218 a4a2c24af6f517e9f1d1f2775bfab05f5973aee3 shipra1502 <shiprakus@gmail.com> 1761919126 +0400	commit: add sign in user and sign out
+a4a2c24af6f517e9f1d1f2775bfab05f5973aee3 f44a24cc858d71a2217e5a49adb465af84a41bbb shipra1502 <shiprakus@gmail.com> 1762794132 +0400	commit: registed TMDB API for movies list and create store
+f44a24cc858d71a2217e5a49adb465af84a41bbb b6fa74e0d4729b184695700df9ce6bcf3e06e821 shipra1502 <shiprakus@gmail.com> 1762891877 +0400	commit: commit secondary container with list of movies from various TMDB API
+b6fa74e0d4729b184695700df9ce6bcf3e06e821 d43672f45f12ac9108feab780d295d4c9b25072c shipra1502 <shiprakus@gmail.com> 1763558217 +0400	commit: Integrate search functionality for movies
