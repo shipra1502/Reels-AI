@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
-import OpenAI from "openai";
-import { API_OPTIONS, OPENAI_API_KEY } from "../utils/constants";
-import openAi from "../utils/openAi";
+import { API_OPTIONS } from "../utils/constants";
 import { gptMoviesApi } from "../api/gptMoviesApi";
 
 const GptSearchBar = () => {
@@ -48,7 +46,6 @@ const GptSearchBar = () => {
       setResults(movies);
       const data = movies.map((movie) => searchMovieTMDB(movie));
       const tmdbResults = await Promise.all(data);
-      console.log("GPT Results:", tmdbResults);
       if (!gptResults.message) throw new Error("Empty GPT Response");
     } catch (err) {
       setError(err.message);

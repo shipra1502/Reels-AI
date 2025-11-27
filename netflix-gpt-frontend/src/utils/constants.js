@@ -16,5 +16,3 @@ export const API_OPTIONS = {
 };
 
 export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w780";
-export const OPENAI_API_KEY =
-  "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";
