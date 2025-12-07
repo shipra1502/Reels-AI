@@ -21,9 +21,17 @@ const gptSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    clearGptMovieResults: (state) => {
+      state.movieNames = null;
+      state.movieResults = null;
+    },
   },
 });
 
-export const { toogleGptSearchView, addGptMovieResults, setLoading } =
-  gptSlice.actions;
+export const {
+  toogleGptSearchView,
+  addGptMovieResults,
+  setLoading,
+  clearGptMovieResults,
+} = gptSlice.actions;
 export default gptSlice.reducer;
