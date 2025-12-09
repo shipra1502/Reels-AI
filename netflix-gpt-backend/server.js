@@ -41,8 +41,6 @@ app.post("/api/chat", async (req, res) => {
       return res.status(400).json({ error: "Query is required" });
     }
 
-    console.log("User query:", query);
-
     // Call OpenAI API
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -54,12 +52,9 @@ app.post("/api/chat", async (req, res) => {
     // Extract response message
     const message = completion.choices[0].message.content;
 
-    console.log("OpenAI response:", message);
-
     // Send response back to React
     res.json({ success: true, message });
   } catch (error) {
-    console.error("Error:", error.message);
     res.status(500).json({ error: error.message });
   }
 });

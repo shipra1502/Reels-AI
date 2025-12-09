@@ -1,58 +1,67 @@
-# Netflix GPT
+# 🎬 Netflix GPT — AI Powered Movie Search Platform
 
-- Create React app
-- Configured Tailwind CSS
-- Header
-- Login Form
-- Sign Up Form
-- Form Validation
-- useRef Hook
-- Firebase setup
-- Deploying our app to production
-- Create Sign Up User account
-- Implement Sign In User Api
-- Created Redux store with userSlice
-- Implemented SignOut
-- Update Profile
-- BugFix: sign up user displayName and profile picture update
-- BugFix: if the user is not logged in redirect/browse to login page and vice-versa
-- Unsubscribed to onAuthStaateChanged callback
-- Add hardcoded values to the constants file
-- Register TMDB API & create an app and get access token
-- Get data from TMDB now playing movies list API
-- Custom hook for now playing movies
-- Create a movie slice
-- Update store with movie data
-- Planning for MainContainer and SecondaryContainer
-- Build main container
-- Fetch data for trailer video
-- Update store with trailer video data
-- Imbedded the youtube vide and made it autoplay and mute
-- Tailwind CSS to make MainContainer look awesome
-- Build secondary component
-- Build Movie List
-- Build Movie Card
-- TMDB image CDN url
-- usePopularMovies, useUpcomingMovies, useTopRatedMovies Custom hook
-- GPT search page
-- GPT search bar
-- (\*) Multi language feature in our app
-- Integrate GPT API'S
-- Added backend integration to fetch data safely and prevent exposing API keys on the client side
+A Netflix-style streaming UI enhanced with GPT intelligence for smart movie discovery.  
+Built with scalable architecture, secure API access, and production-grade best practices.
 
-# Features
+---
 
-- Login/Sign Up
-  - Sign In / Sign Up Form
-  - Redirect to Browse Page
-- Browse(After Authentication)
-  - Header
-  - Routing of App
-  - Main Movie
-    - Tailor in background
-    - Title & Description
-    - Movie suggestions
-      - Movielists \* N
-- NetflixGPT
-  - Search Bar
-  - Movie Suggestions
+## 🚀 Tech Highlights
+
+- React + Redux Toolkit state management
+- Tailwind CSS for responsive UI styling
+- Firebase Authentication + Hosting deployment
+- Secure backend proxy for TMDB & OpenAI APIs
+- Optimized render performance using memoization
+- YouTube trailer background with autoplay & mute
+- Multi-language GPT search support
+
+---
+
+## 📌 Key Features Delivered
+
+### 🔑 Authentication
+
+- Login & Sign-Up pages with validation
+- Firebase user creation, login & logout
+- Profile update (display name + avatar)
+- Smart redirects:
+  - If not logged in → Login page
+  - If logged in → Browse page
+- Cleanup of `onAuthStateChanged` subscriptions to prevent memory leaks
+
+### 🎞 Browse UI (After Login)
+
+- Dynamic browse movie section with autoplay trailer
+- Title + description overlay with cinematic styling
+- Movie rows: Now Playing / Popular / Upcoming / Top Rated
+- Reusable components: **MovieCard**, **MovieList**
+- Images served using **TMDB image CDN** for performance
+
+### 🤖 NetflixGPT — AI Search
+
+- GPT-driven movie name suggestions
+- Multi-language prompt support
+- Secure server-side integration for GPT + TMDB API calls  
+  → prevents exposing API keys on the client
+- Displays results using the same movie list UI
+
+---
+
+## 🧠 Engineering Milestones
+
+- Project created with Create React App
+- Tailwind setup for Netflix-style UI
+- Header, Login & Register pages
+- Redux store with: `userSlice`, `movieSlice`, `gptSlice`
+- Built **MainContainer** & **SecondaryContainer**
+- Custom hooks for fetching movies:
+  - `useNowPlayingMovies`
+  - `usePopularMovies`
+  - `useUpcomingMovies`
+  - `useTopRatedMovies`
+- Trailer fetch & autoplay YouTube integration
+- Constants file for reusable static values
+- Fixed auth/profile display bugs
+- Fully responsive across devices
+
+---

@@ -52,13 +52,13 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute px-8 py-2 w-screen bg-gradient-to-b from-black flex justify-between items-center flex-row">
-      <img className="w-44" src={LOGO} alt="logo"></img>
+    <div className="absolute px-8 py-2 w-screen bg-gradient-to-b from-black flex flex-col md:flex-row md:justify-between items-center">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo"></img>
       {user && (
-        <div className="flex p-2">
+        <div className="flex justify-between p-2">
           {langFlag && (
             <select
-              className="bg-black text-white rounded-md py-2 px-4 mx-4 my-2"
+              className="bg-black text-white rounded-md py-2 px-4 mx-2 md:mx-4 my-2"
               onChange={handleLanguageChange}
             >
               {Object.entries(lang).map(([code, data]) => (
@@ -75,7 +75,10 @@ const Header = () => {
             {langFlag ? " HomePage" : "GPT Search"}
           </button>
           <img src={user?.photoURL} alt="User Icon" className="w-10 h-10" />
-          <button onClick={handleSignOut} className="font-bold text-white">
+          <button
+            onClick={handleSignOut}
+            className="font-bold text-white cursor-pointer"
+          >
             (Sign Out)
           </button>
         </div>
