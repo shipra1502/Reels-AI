@@ -47,109 +47,60 @@ const GptSearchBar = () => {
     dispatch(setLoading(true));
 
     try {
-      const extractMovieNames = (input, opts = {}) => {
-        const stripParens = opts.stripParens ?? true;
-        const titles = [];
-        const seen = new Set();
-        if (input === null || input === undefined) return titles;
+      const query = searchText.current.value;
 
-        const cleanTitle = (raw) => {
-          let t = raw.trim();
-          t = t.replace(/\(\d{4}\)$/, "").trim(); // remove (YYYY)
-          if (stripParens) t = t.replace(/\s*\([^)]{1,120}\)\s*$/, "").trim(); // remove trailing parentheses
-          return t;
-        };
+      if (!query) {
+        throw new Error("Please enter a movie or genre");
+      }
 
-        const pushTitle = (raw) => {
-          const t = cleanTitle(raw);
-          if (!t) return;
-          const key = t.toLowerCase();
-          if (!seen.has(key)) {
-            seen.add(key);
-            titles.push(t);
-          }
-        };
+      const gptResults = await gptMoviesApi(query);
 
-        // Handle TMDb array/object
-        if (typeof input === "object") {
-          const arr = Array.isArray(input)
-            ? input
-            : input.results ?? input.items ?? [input];
+      if (!gptResults || !gptResults.success) {
+        throw new Error("Search failed. Please try again.");
+      }
 
-          arr.forEach((item) => {
-            if (!item) return;
-            if (typeof item === "string") return pushTitle(item);
-
-            const rawTitle =
-              item.title ??
-              item.name ??
-              item.original_title ??
-              item.original_name ??
-              null;
-
-            if (rawTitle) return pushTitle(rawTitle);
-
-            pushTitle(JSON.stringify(item)); // fallback
-          });
-
-          return titles;
+      // 🎬 DETAILS MODE (single movie)
+      if (gptResults.mode === "DETAILS") {
+        const tmdbResults = await searchMovieTMDB(gptResults.query);
+        if (!tmdbResults || tmdbResults.length === 0) {
+          throw new Error("Movie not found. Try another title.");
         }
 
-        // Treat as plain text
-        const text = String(input);
-        const lines = text.split(/\r?\n/);
-        const boldRegex = /\*\*([^*]+?)\*\*/g;
+        dispatch(
+          addGptMovieResults({
+            movieNames: [gptResults.query],
+            movieResults: [tmdbResults],
+          })
+        );
 
-        lines.forEach((rawLine) => {
-          const line = rawLine.trim();
-          if (!line) return;
+        return;
+      }
 
-          // Bold extraction
-          let match;
-          let foundBold = false;
-          while ((match = boldRegex.exec(line)) !== null) {
-            foundBold = true;
+      // 🎥 RECOMMENDATIONS MODE
+      if (gptResults.mode === "RECOMMENDATIONS") {
+        if (!gptResults.movies || gptResults.movies.length === 0) {
+          throw new Error("No recommendations found");
+        }
 
-            let raw = match[1].trim();
+        const movieNames = gptResults.movies;
 
-            const after = line
-              .slice(match.index + match[0].length)
-              .match(/^\s*\((\d{4})\)/);
+        const tmdbResults = await Promise.all(
+          movieNames.map((movie) => searchMovieTMDB(movie))
+        );
 
-            if (after && !raw.match(/\(\d{4}\)$/)) {
-              raw = `${raw} (${after[1]})`;
-            }
+        dispatch(
+          addGptMovieResults({
+            movieNames,
+            movieResults: tmdbResults,
+          })
+        );
 
-            pushTitle(raw);
-          }
+        return;
+      }
 
-          if (foundBold) return;
-
-          // fallback: "1. Title (2019) - desc"
-          const clean = line
-            .replace(/^\d+\.\s*/, "")
-            .replace(/^[*-]\s*/, "")
-            .split(/\s-\s/)[0]
-            .trim();
-
-          if (clean.length > 1 && clean.length < 200) pushTitle(clean);
-        });
-
-        return titles;
-      };
-      const gptQuery =
-        "Act as a movie recommendation engine. Recommend movies based on: " +
-        searchText.current.value;
-      const gptResults = await gptMoviesApi(gptQuery);
-      const movies = extractMovieNames(gptResults.message);
-      const data = movies.map((movie) => searchMovieTMDB(movie));
-      const tmdbResults = await Promise.all(data);
-      dispatch(
-        addGptMovieResults({ movieNames: movies, movieResults: tmdbResults })
-      );
-      if (!gptResults.message) throw new Error("Empty GPT Response");
+      throw new Error("Unexpected response from server");
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Something went wrong");
     } finally {
       dispatch(setLoading(false));
     }

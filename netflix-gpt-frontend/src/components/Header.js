@@ -52,7 +52,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute px-8 py-2 w-screen bg-gradient-to-b from-black flex flex-col md:flex-row md:justify-between items-center">
+    <div className="absolute px-8 py-2 w-screen bg-gradient-to-b from-black flex flex-col md:flex-row md:justify-between items-center  z-20">
       <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo"></img>
       {user && (
         <div className="flex justify-between p-2">
@@ -69,7 +69,7 @@ const Header = () => {
             </select>
           )}
           <button
-            className="py-2 px-4 mx-4 my-2 text-white rounded-lg bg-purple-600 bg-opacity-50 hover:bg-opacity-30 transition z-20"
+            className="py-2 px-4 mx-4 my-2 text-white rounded-lg bg-purple-600 bg-opacity-50 hover:bg-opacity-30 transition"
             onClick={handleGptSearchClick}
           >
             {langFlag ? " HomePage" : "GPT Search"}
