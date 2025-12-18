@@ -1,67 +1,81 @@
-# 🎬 Reels AI — AI Powered Movie Search Platform
+# 🎬 Reels AI — AI-Powered Movie Discovery Platform
 
-A Reels AI-style streaming UI enhanced with GPT intelligence for smart movie discovery.  
-Built with scalable architecture, secure API access, and production-grade best practices.
+Reels AI is an AI-powered movie discovery platform that delivers personalized recommendations using GPT-driven natural language queries.
 
 ---
 
 ## 🚀 Tech Highlights
 
-- React + Redux Toolkit state management
-- Tailwind CSS for responsive UI styling
-- Firebase Authentication + Hosting deployment
-- Secure backend proxy for TMDB & OpenAI APIs
-- Optimized render performance using memoization
+- React with Redux Toolkit for scalable state management
+- Tailwind CSS for responsive, mobile-first UI
+- Firebase Authentication for secure user access
+- Secure Node.js backend proxy for OpenAI APIs
+- Performance optimizations using memoization
 - YouTube trailer background with autoplay & mute
-- Multi-language GPT search support
+- Multi-language AI search support
 
 ---
 
-## 📌 Key Features Delivered
+## 📌 Key Features
 
 ### 🔑 Authentication
 
-- Login & Sign-Up pages with validation
-- Firebase user creation, login & logout
-- Profile update (display name + avatar)
-- Smart redirects:
-  - If not logged in → Login page
-  - If logged in → Browse page
-- Cleanup of `onAuthStateChanged` subscriptions to prevent memory leaks
-
-### 🎞 Browse UI (After Login)
-
-- Dynamic browse movie section with autoplay trailer
-- Title + description overlay with cinematic styling
-- Movie rows: Now Playing / Popular / Upcoming / Top Rated
-- Reusable components: **MovieCard**, **MovieList**
-- Images served using **TMDB image CDN** for performance
-
-### 🤖 Reels AI — AI Search
-
-- GPT-driven movie name suggestions
-- Multi-language prompt support
-- Secure server-side integration for GPT + TMDB API calls  
-  → prevents exposing API keys on the client
-- Displays results using the same movie list UI
+- Login & Sign-Up flows with validation
+- Firebase user creation, login, and logout
+- Profile updates (display name & avatar)
+- Smart routing:
+  - Unauthenticated users → Login
+  - Authenticated users → Browse
+- Proper cleanup of `onAuthStateChanged` subscriptions to prevent memory leaks
 
 ---
 
-## 🧠 Engineering Milestones
+### 🎞 Browse Experience
 
-- Project created with Create React App
-- Tailwind setup for UI
-- Header, Login & Register pages
-- Redux store with: `userSlice`, `movieSlice`, `gptSlice`
-- Built **MainContainer** & **SecondaryContainer**
-- Custom hooks for fetching movies:
+- Dynamic movie section with autoplay movie trailers
+- Cinematic title & description overlay
+- Movie categories:
+  - Now Playing
+  - Popular
+  - Upcoming
+  - Top Rated
+- Reusable UI components: **MovieCard**, **MovieList**
+- Optimized image delivery using **TMDB CDN**
+
+---
+
+### 🤖 Reels AI — Intelligent Search
+
+- GPT-powered movie recommendations from natural language prompts
+- Multi-language query support
+- Secure server-side integration for GPT + TMDB APIs  
+  → prevents exposing sensitive API keys
+- Results rendered using the same reusable movie list components
+
+---
+
+## 🧠 Engineering Highlights
+
+- Bootstrapped using Create React App
+- Modular component-driven architecture
+- Centralized Redux store with:
+  - `userSlice`
+  - `moviesSlice`
+  - `gptSlice`
+- Custom hooks for data fetching:
   - `useNowPlayingMovies`
   - `usePopularMovies`
   - `useUpcomingMovies`
   - `useTopRatedMovies`
-- Trailer fetch & autoplay YouTube integration
-- Constants file for reusable static values
-- Fixed auth/profile display bugs
-- Fully responsive across devices
+- YouTube trailer fetching & autoplay logic
+- Centralized constants for maintainability
+- Resolved auth & profile sync edge cases
+- Fully responsive across mobile, tablet, and desktop devices
+
+---
+
+## 🔄 Project Evolution
+
+This project began as a UI exploration for modern media platforms and evolved into **Reels AI**, an original AI-driven movie discovery product with custom branding, architecture, and UX decisions.
 
 ---
